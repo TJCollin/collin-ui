@@ -1,0 +1,64 @@
+.tabs {
+	.tabs-nav {
+		display: flex;
+		flex-direction: row;
+		list-style: none;
+		border-bottom: $tab-border-width solid $tab-border-color;
+		.tab-item {
+			cursor: pointer;
+			padding: $tab-item-padding-y $tab-item-padding-x;
+			&:hover,
+			.been-actived {
+				color: $tab-item-active-color;
+			}
+
+			&.been-disabled {
+				color: $tab-item-disabled-color;
+				cursor: default;
+				pointer-events: none;
+			}
+		}
+	}
+	.tabs-nav.nav-line {
+		.tab-item {
+			margin: 0;
+			border-bottom: $tab-item-active-border-width solid transparent;
+			&:hover,
+			.been-actived {
+				color: $tab-item-active-color;
+			}
+			&.been-actived {
+				border-bottom: $tab-item-active-border-width solid $tab-item-active-color;
+			}
+			&.been-disabled {
+				border-bottom: $tab-item-active-border-width solid transparent;
+			}
+		}
+	}
+	.tabs-nav.nav-card {
+		.tab-item {
+			margin: 0;
+			position: relative;
+			bottom: -$tab-item-card-width;
+			border: $tab-item-card-width solid transparent;
+			&.been-actived {
+				border-width: $tab-item-card-width;
+				border-style: solid;
+				border-radius: $tab-item-active-border-radius $tab-item-active-border-radius 0 0;
+				border-color: $tab-item-active-border-color $tab-item-active-border-color $body-bg;
+			}
+			&.been-disabled {
+				border-bottom: $tab-item-card-width solid transparent;
+			}
+		}
+	}
+
+	.tabs-content {
+		.tabs-content-item {
+			display: none;
+			&.been-actived {
+				display: block;
+			}
+		}
+	}
+}
