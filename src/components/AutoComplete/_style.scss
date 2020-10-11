@@ -1,0 +1,35 @@
+.auto-complete {
+	position: relative;
+}
+
+.suggestion-list {
+	list-style: none;
+	padding-left: 0;
+	white-space: nowrap;
+	position: absolute;
+	background: $white;
+	z-index: 100;
+	top: calc(100% + 8px);
+	left: 0;
+	border: $auto-complete-border-width solid $auto-complete-border-color;
+	box-shadow: $auto-complete-box-shadow;
+	width: 100%;
+	.loading-icon {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		min-height: $loading-icon-min-height;
+	}
+	.suggestion-item {
+		cursor: pointer;
+		padding: $suggestion-item-padding-y $suggestion-item-padding-x;
+		margin: 0;
+		&.been-actived {
+			background: $suggestion-item-active-color;
+			color: $white !important;
+		}
+		&:hover {
+			color: $suggestion-item-active-color;
+		}
+	}
+}
