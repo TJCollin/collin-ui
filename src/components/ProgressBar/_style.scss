@@ -1,0 +1,18 @@
+.progress-bar {
+	width: 100%;
+	box-sizing: border-box;
+	border-radius: $progress-border-radius;
+	background-color: $progress-bg;
+	.progress-bar-inner {
+		border-radius: $progress-border-radius;
+		transition: $progress-bar-transition;
+		line-height: 1;
+	}
+}
+@each $key, $val in $theme-list {
+	.progress-#{$key} {
+		.progress-bar-inner {
+			background-color: $val;
+		}
+	}
+}
