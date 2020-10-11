@@ -1,0 +1,55 @@
+.alert {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	line-height: $line-height-base;
+	color: $white;
+	font-weight: $font-weight-normal;
+	font-size: $alert-font-size;
+	border-radius: $alert-border-radius;
+	box-sizing: border-box;
+	margin-bottom: $alert-margin-bottom;
+	.content {
+		padding: $alert-padding-y $alert-padding-x;
+		.alert-desc {
+			font-size: $alert-desc-font-size;
+			margin: $alert-desc-margin;
+		}
+		.bold-title {
+			font-weight: $font-weight-bold;
+		}
+	}
+
+	button {
+		padding: $alert-padding-y $alert-padding-x;
+		border: none;
+		color: $white;
+		background-color: transparent;
+		border: none;
+		cursor: pointer;
+		line-height: $line-height-base;
+		font-weight: $font-weight-normal;
+		flex: 0;
+		height: fit-content;
+		&:focus,
+		.focus {
+			outline: none;
+		}
+	}
+}
+
+.alert-default {
+	@include alert-style($primary, $primary);
+}
+
+.alert-success {
+	@include alert-style($success, $success);
+}
+
+.alert-danger {
+	@include alert-style($danger, $danger);
+}
+
+.alert-warning {
+	@include alert-style($warning, $warning);
+}

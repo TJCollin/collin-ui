@@ -1,0 +1,40 @@
+// 以下划线开始的文件是partial文件, 不会被单独编译成css
+// 导入时忽略下划线
+// config
+@import "variable";
+
+// layout
+@import "reboot";
+
+// mixin
+@import "mixin";
+
+// animation
+@import "animation";
+
+// button
+@import "../components/Button/style";
+
+// alert
+@import "../components/Alert/style";
+
+// menu
+@import "../components/Menu/style";
+
+// tab
+@import "../components/Tabs/style";
+
+// icon
+@import "../components/Icon/style";
+
+// input
+@import "../components/Input/style";
+
+// autoComplete
+@import "../components/AutoComplete/style";
+
+// upload
+@import "../components/Upload/style";
+
+// progressBar
+@import "../components/ProgressBar/style";

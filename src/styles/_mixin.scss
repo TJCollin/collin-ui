@@ -1,0 +1,73 @@
+@mixin button-size($padding-x, $padding-y, $font-size, $border-radius) {
+	padding: $padding-y $padding-x;
+	border-radius: $border-radius;
+	font-size: $font-size;
+}
+
+@mixin button-style(
+	$background,
+	$color,
+	$border,
+	$hover-background: lighten($background, 7.5%),
+	$hover-color: $color,
+	$hover-border: lighten($border, 10%)
+) {
+	background: $background;
+	color: $color;
+	border-color: $border;
+	&:hover {
+		background: $hover-background;
+		color: $hover-color;
+		border-color: $hover-border;
+	}
+	&:focus,&.focus {
+		background: $hover-background;
+		color: $hover-color;
+		border-color: $hover-border;
+		outline: none;
+	}
+	&:disabled,&.disabled {
+		color: $color;
+		background: $background;
+		border-color: $border;
+	}
+}
+
+@mixin alert-style($background, $border) {
+	background-color: $background;
+	border-color: $border
+}
+
+@mixin menu-border-style($border-bottom-width,$border-bottom-color, $border-left-width, $border-left-color) {
+	border-bottom: $border-bottom-width solid $border-bottom-color;
+	border-left: $border-left-width solid $border-left-color;
+}
+
+@mixin  zoom-animation(
+	$direction: 'top',
+	$scaleStart: scaleY(0),
+  $scaleEnd: scaleY(1),
+  $origin: center top,
+) {
+	.zoom-in-#{$direction}-enter,.zoom-in-#{$direction}-appear {
+		opacity: 0;
+		transform: $scaleStart;
+	}
+	.zoom-in-#{$direction}-enter-active,.zoom-in-#{$direction}-appear-active {
+		opacity: 1;
+		transform: $scaleEnd;
+		transition: transform 300ms cubic-bezier(0.23, 1, 0.32, 1) 100ms, opacity 300ms cubic-bezier(0.23, 1, 0.32, 1) 100ms;
+    transform-origin: $origin
+	}
+	.zoom-in-#{$direction}-exit {
+		opacity: 1;
+	}
+	.zoom-in-#{$direction}-exit-active {
+		opacity: 0;
+		transform: $scaleStart;
+		transition: transform 300ms cubic-bezier(0.23, 1, 0.32, 1) 100ms, opacity 300ms cubic-bezier(0.23, 1, 0.32, 1) 100ms;
+    transform-origin: $origin;
+	}
+}
+
+
