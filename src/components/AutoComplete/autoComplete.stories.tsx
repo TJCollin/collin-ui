@@ -1,7 +1,7 @@
 import React from "react";
 import AutoComplete, { AutoCompleteProps } from "./autoComplete";
 import { Story, Meta } from "@storybook/react/types-6-0";
-import axios from "./__mocks__/axios";
+import axios from "../../__mocks__/axios";
 
 const axiosTool = axios as any;
 

@@ -1,5 +1,4 @@
 import {
-  cleanup,
   createEvent,
   fireEvent,
   render,
@@ -29,22 +28,6 @@ describe("Upload", () => {
   };
 
   const testProps: UploadProps = {
-    action: "fakeUrl",
-    beforeUpload: jest.fn((file: UploadFile) => true),
-    onUploadProgress: jest.fn(),
-    onUploadSuccess: jest.fn(),
-    onUploadError: jest.fn(),
-    onFileStatusChange: jest.fn(),
-    onFileRemove: jest.fn(),
-    headers: { "x-powered-by": "collin" },
-    data: { testData: "data" },
-    name: "testFile",
-    withCredentials: true,
-    accept: ".png",
-    multiple: true,
-    drag: true,
-  };
-  const testProps2: UploadProps = {
     action: "fakeUrl",
     beforeUpload: jest.fn((file: UploadFile) => true),
     onUploadProgress: jest.fn(),

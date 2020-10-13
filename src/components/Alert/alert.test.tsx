@@ -11,7 +11,7 @@ describe("Alert component", () => {
     closable: false,
   };
   it("should render default Alert Style", () => {
-    const { container, getByText, queryByText } = render(
+    const { container, getByText } = render(
       <Alert title={testAlertProps.title}></Alert>
     );
     expect(getByText(testAlertProps.title)).toBeInTheDocument();

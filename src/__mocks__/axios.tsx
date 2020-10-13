@@ -1,3 +1,5 @@
+import { AxiosRequestConfig } from "axios";
+
 const arr = [
   { value: "abc1", label: "abc" },
   { value: "bcd", label: "bcd" },
@@ -14,5 +16,8 @@ export default {
         resolve({ data: arr });
       });
     }
+  },
+  post: (url: string, data?: any, config?: AxiosRequestConfig) => {
+    return Promise.resolve({ data: "mocked response" });
   },
 };

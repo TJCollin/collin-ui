@@ -3,11 +3,10 @@ import {
   render,
   fireEvent,
   RenderResult,
-  cleanup,
   waitFor,
 } from "@testing-library/react";
 import Menu, { MenuProps } from "./menu";
-import MenuItem, { MenuItemProps } from "./menuItem";
+import MenuItem from "./menuItem";
 import SubMenu from "./subMenu";
 
 const createStyleFile = () => {
@@ -57,8 +56,7 @@ let verWrapper: RenderResult,
   menuEl: HTMLUListElement,
   activeItem: HTMLLIElement,
   disabledItem: HTMLLIElement,
-  normalItem: HTMLLIElement,
-  subMenu: HTMLLIElement;
+  normalItem: HTMLLIElement;
 describe("Menu", () => {
   const disabledItemClass = "been-disabled";
   const activedItemClass = "been-actived";
@@ -77,7 +75,6 @@ describe("Menu", () => {
     activeItem = wrapper.getByText("active") as HTMLLIElement;
     disabledItem = wrapper.getByText("disabled") as HTMLLIElement;
     normalItem = wrapper.getByText("normal") as HTMLLIElement;
-    subMenu = wrapper.getByText("subMenu") as HTMLLIElement;
   });
   it("should render default menu and menuItem", () => {
     expect(menuEl).toBeInTheDocument();
