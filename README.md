@@ -1,34 +1,34 @@
 <!--
  * @Author: Collin Zhang
  * @Date: 2020-08-30 19:40:14
- * @LastEditTime: 2020-10-13 19:44:24
+ * @LastEditTime: 2020-10-25 12:09:12
  * @LastEditors: Please set LastEditors
  * @Description: Add readme for collin-ui
  * @FilePath: \collin-components\README.md
 -->
 
 # CollinUI
+CollinUI, a React based component library for developers, designers and product managers.
 
 ## Install
-```shell
-npm install element-ui -S
+```javascript
+npm install collin-ui --save
+
+// or
+
+yarn add collin-ui
 ```
 
 ## Quick Start
 ``` javascript
-import Vue from 'vue'
-import Element from 'element-ui'
+// import css globally
+import 'vikingship/dist/index.css'
 
-Vue.use(Element)
-
-// or
 import {
-  Select,
+  Input,
   Button
   // ...
-} from 'element-ui'
+} from 'collin-ui'
 
-Vue.component(Select.name, Select)
-Vue.component(Button.name, Button)
 ```
-For more information, please refer to [Quick Start](http://element.eleme.io/#/en-US/component/quickstart) in our documentation.
+
