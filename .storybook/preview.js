@@ -1,17 +1,26 @@
-/*
- * @Author: your name
- * @Date: 2020-09-13 10:46:52
- * @LastEditTime: 2020-10-11 14:24:47
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: \collin-components\.storybook\preview.js
- */
 import "../src/styles/index.scss";
-import React from "react";
 export const parameters = {
-	actions: { argTypesRegex: "^on[A-Z].*" },
-	storySort: ['Introduction']
-};
+  actions: { argTypesRegex: "^on[A-Z].*" },
+  controls: {
+    matchers: {
+      color: /(background|color)$/i,
+      date: /Date$/,
+    },
+  },
+  backgrounds: {
+    default: 'primary',
+    values: [
+      {
+        name: 'primary',
+        value: 'e4ebf5',
+      },
+      {
+        name: 'white',
+        value: '#ffffff',
+      },
+    ],
+  },
+}
 
 export const decorators = [
   (Story, Context) => (

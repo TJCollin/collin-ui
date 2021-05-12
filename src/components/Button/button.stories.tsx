@@ -5,6 +5,7 @@ import Button, { ButtonProps } from "./button";
 export default {
   title: "Button",
   component: Button,
+  argTypes: { onClick: { action: "onClick" } },
 } as Meta;
 
 export const Default: Story<ButtonProps> = () => {

@@ -29,7 +29,6 @@ describe("Upload", () => {
 
   const testProps: UploadProps = {
     action: "fakeUrl",
-    beforeUpload: jest.fn((file: UploadFile) => true),
     onUploadProgress: jest.fn(),
     onUploadSuccess: jest.fn(),
     onUploadError: jest.fn(),
@@ -48,6 +47,8 @@ describe("Upload", () => {
     uploadArea: HTMLElement,
     fileInput: HTMLInputElement;
   beforeEach(() => {
+    const beforeUpload = jest.fn((file: UploadFile) => true);
+    testProps.beforeUpload = beforeUpload;
     wrapper = render(<Upload {...testProps}>Area</Upload>);
     wrapper.container.append(createStyleFile());
     uploadArea = wrapper.getByText("Area");

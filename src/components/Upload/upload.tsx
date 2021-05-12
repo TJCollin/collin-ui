@@ -8,6 +8,9 @@ export type FileStatus = "ready" | "uploading" | "success" | "error";
 
 export interface UploadProps extends React.HTMLAttributes<HTMLDivElement> {
   action: string;
+  /**
+   * Fires when alert is closed
+   */
   beforeUpload?: (file: UploadFile) => boolean | Promise<File>;
   onUploadProgress?: (percentage: number, file: UploadFile) => void;
   onUploadSuccess?: (res: any, file: UploadFile) => void;
