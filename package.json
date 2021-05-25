@@ -1,6 +1,6 @@
 {
   "name": "collin-components",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": false,
   "license": "MIT",
   "main": "build/index.js",
@@ -10,7 +10,8 @@
   "keywords": [
     "react",
     "components",
-    "ui"
+    "ui",
+    "neumorphism"
   ],
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.35",
@@ -35,7 +36,7 @@
     "build": "npm run clean && npm run build-ts && npm run build-css",
     "start": "react-scripts start",
     "test": "react-scripts test",
-    "test:nowatch": "cross-env CI=ture react-scripts test --env=jest-environment-jsdom-sixteen",
+    "test:nowatch": "cross-env CI=ture react-scripts test",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public",
@@ -83,6 +84,7 @@
     "@types/node": "^12.0.0",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
+    "@types/react-transition-group": "^4.4.1",
     "cross-env": "^7.0.3",
     "husky": "^6.0.0",
     "node-sass": "^5.0.0",

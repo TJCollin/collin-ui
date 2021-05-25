@@ -181,14 +181,12 @@ export const Upload: React.FC<UploadProps> = (props) => {
         },
       })
       .then((res) => {
-        console.log("------res", res);
         _file = { ..._file, status: "success", res: res, per: 100 };
         onUploadSuccess && onUploadSuccess(res.data, _file);
         updateFileList({ ..._file, status: "success", res: res, per: 100 });
         onFileStatusChange && onFileStatusChange(_file);
       })
       .catch((err) => {
-        console.error("------err", err);
         _file = { ..._file, status: "error", err: err };
         onUploadError && onUploadError(err, _file);
         updateFileList({ ..._file, status: "error", err: err });

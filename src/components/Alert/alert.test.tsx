@@ -1,5 +1,5 @@
 import React from "react";
-import { render, fireEvent } from "@testing-library/react";
+import { render, fireEvent, getByRole } from "@testing-library/react";
 import Alert, { AlertProps } from "./alert";
 describe("Alert component", () => {
   const testAlertProps: AlertProps = {
@@ -17,16 +17,17 @@ describe("Alert component", () => {
     expect(getByText(testAlertProps.title)).toBeInTheDocument();
     const el = container.firstChild as HTMLElement;
     expect(el).toHaveClass("alert", "alert-default");
-    const closeButton = getByText("x");
+    const closeButton = getByRole(el, "button");
     expect(closeButton.tagName).toBe("BUTTON");
     expect(closeButton).toBeInTheDocument();
   });
   it("should close when close button clicked", () => {
-    const { getByText, queryByText } = render(
+    const { container, getByText, queryByText } = render(
       <Alert title={testAlertProps.title}></Alert>
     );
     expect(getByText(testAlertProps.title)).toBeInTheDocument();
-    const closeButton = getByText("x");
+    const el = container.firstChild as HTMLElement;
+    const closeButton = getByRole(el, "button");
     fireEvent.click(closeButton);
     expect(queryByText(testAlertProps.title)).not.toBeInTheDocument();
   });
