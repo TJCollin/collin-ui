@@ -1,55 +1,62 @@
 .alert {
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-	line-height: $line-height-base;
-	color: $white;
-	font-weight: $font-weight-normal;
-	font-size: $alert-font-size;
-	border-radius: $alert-border-radius;
-	box-sizing: border-box;
-	margin-bottom: $alert-margin-bottom;
-	.content {
-		padding: $alert-padding-y $alert-padding-x;
-		.alert-desc {
-			font-size: $alert-desc-font-size;
-			margin: $alert-desc-margin;
-		}
-		.bold-title {
-			font-weight: $font-weight-bold;
-		}
-	}
-
-	button {
-		padding: $alert-padding-y $alert-padding-x;
-		border: none;
-		color: $white;
-		background-color: transparent;
-		border: none;
-		cursor: pointer;
-		line-height: $line-height-base;
-		font-weight: $font-weight-normal;
-		flex: 0;
-		height: fit-content;
-		&:focus,
-		.focus {
-			outline: none;
-		}
-	}
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  line-height: $line-height-base;
+  color: $neu-primary;
+  font-weight: $font-weight-normal;
+  font-size: $alert-font-size;
+  border-radius: $alert-border-radius;
+  box-sizing: border-box;
+  margin-bottom: $alert-margin-bottom;
+  @include neufactory($neu-light-bg);
+  .content {
+    padding: $alert-padding-y $alert-padding-x;
+    .alert-desc {
+      font-size: $alert-desc-font-size;
+      margin: $alert-desc-margin;
+    }
+    .bold-title {
+      font-weight: $font-weight-bold;
+    }
+  }
+  button {
+    padding: 0;
+    margin: 0 $alert-padding-x;
+    width: 1.75rem;
+    height: 1.75rem;
+    font-size: 1.2rem;
+    border-radius: $alert-border-radius;
+    background-color: transparent;
+    color: inherit;
+    border: none;
+    cursor: pointer;
+    line-height: 1rem;
+    font-weight: $font-weight-normal;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @include neufactory-active($neu-light-bg);
+    &:focus,
+    .focus {
+      outline: none;
+    }
+  }
 }
 
 .alert-default {
-	@include alert-style($primary, $primary);
+  background-color: $neu-light-bg;
 }
 
 .alert-success {
-	@include alert-style($success, $success);
+  color: $success;
 }
 
 .alert-danger {
-	@include alert-style($danger, $danger);
+  color: $danger;
 }
 
 .alert-warning {
-	@include alert-style($warning, $warning);
+  color: $warning;
 }

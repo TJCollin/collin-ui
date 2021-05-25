@@ -7,23 +7,38 @@ import Dragger from "./dragger";
 export type FileStatus = "ready" | "uploading" | "success" | "error";
 
 export interface UploadProps extends React.HTMLAttributes<HTMLDivElement> {
-  action: string;
   /**
-   * Fires when alert is closed
+   * Upload url
    */
+  action: string;
   beforeUpload?: (file: UploadFile) => boolean | Promise<File>;
   onUploadProgress?: (percentage: number, file: UploadFile) => void;
   onUploadSuccess?: (res: any, file: UploadFile) => void;
   onUploadError?: (err: any, file: UploadFile) => void;
   onFileStatusChange?: (file: UploadFile) => void;
   onFileRemove?: (file: UploadFile) => void;
+  /**
+   * Files already uploaded
+   */
   defaultFileList?: UploadFile[];
+  /**
+   * Custom headers
+   */
   headers?: { [key: string]: any };
+  /**
+   * Default upload data
+   */
   data?: { [key: string]: any };
+  /**
+   * Default file name
+   */
   name?: string;
   withCredentials?: boolean;
   accept?: string;
   multiple?: boolean;
+  /**
+   * Determine whether the upload area is droppable
+   */
   drag?: boolean;
 }
 
@@ -41,7 +56,7 @@ export interface UploadFile {
  * Upload files by clicking or drag-and-drop.
  *
  * ```javascript
- * import {Upload} from
+ * import {Upload} from "collin-ui"
  * ```
  */
 export const Upload: React.FC<UploadProps> = (props) => {
@@ -85,7 +100,6 @@ export const Upload: React.FC<UploadProps> = (props) => {
 
   const uploadFiles = (files: FileList) => {
     let uploadFiles = Array.from(files);
-
     uploadFiles.forEach((file) => {
       const uid = Date.now() + "_upload_file";
       let _file: UploadFile = {
@@ -167,13 +181,14 @@ export const Upload: React.FC<UploadProps> = (props) => {
         },
       })
       .then((res) => {
+        console.log("------res", res);
         _file = { ..._file, status: "success", res: res, per: 100 };
         onUploadSuccess && onUploadSuccess(res.data, _file);
         updateFileList({ ..._file, status: "success", res: res, per: 100 });
         onFileStatusChange && onFileStatusChange(_file);
       })
       .catch((err) => {
-        console.error(err);
+        console.error("------err", err);
         _file = { ..._file, status: "error", err: err };
         onUploadError && onUploadError(err, _file);
         updateFileList({ ..._file, status: "error", err: err });

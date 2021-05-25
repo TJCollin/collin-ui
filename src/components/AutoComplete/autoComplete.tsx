@@ -19,8 +19,18 @@ export interface DataSourceType {
 }
 
 export interface AutoCompleteProps extends Omit<InputProps, "onSelect"> {
+  /**
+   * Emitted when list item is selected
+   */
   onSelect?: (data: DataSourceType) => void;
+  /**
+   * Use for custom suggestion item
+   */
   renderOptions?: (data: DataSourceType) => ReactElement;
+
+  /**
+   * Emitted when input value changed to get remote data
+   */
   fetchSuggestions: (
     inputVal: string
   ) => DataSourceType[] | Promise<DataSourceType[]>;
@@ -34,7 +44,7 @@ export interface AutoCompleteProps extends Omit<InputProps, "onSelect"> {
  * ### Usage
  *
  * ```javascript
- * import {AutoComplete} from
+ * import { AutoComplete } from "collin-ui"
  * ```
  */
 export const AutoComplete: React.FC<AutoCompleteProps> = (props) => {

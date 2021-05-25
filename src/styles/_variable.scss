@@ -341,3 +341,47 @@ $upload-list-item-padding-x: 0;
 $upload-list-item-padding-y: 0.875rem;
 $upload-list-item-name-padding-left: 0.25rem;
 $upload-list-item-margin-top: 0.25rem;
+
+$neu-light-bg: #e4ebf5;
+$neu-light-bg-dark-shadow: scale-color($neu-light-bg, $lightness: -15%);
+$neu-light-bg-light-shadow: scale-color($neu-light-bg, $lightness: 85%);
+
+$neu-dark-bg: #444444;
+$neu-dark-bg-dark-shadow: #363636;
+$neu-dark-bg-light-shadow: #525252;
+
+$neu-white: #ffffff;
+$neu-black: #000000;
+
+$neu-primary: #2979ff;
+$neu-primary-dark: #2962ff;
+$neu-primary-light: #82b1ff;
+
+$neu-error: #ff5252;
+$neu-info: #2196f3;
+$neu-success: #4caf50;
+$neu-warning: #dfa700;
+
+$neu-g-text-color-light: rgba(0, 0, 0, 0.93);
+$neu-g-text-color-disabled-light: rgba(0, 0, 0, 0.45);
+$neu-g-text-color-secondary-light: rgba(0, 0, 0, 0.7);
+
+$neu-g-text-color-dark: rgba(255, 255, 255, 0.93);
+$neu-g-text-color-disabled-dark: rgba(255, 255, 255, 0.45);
+$neu-g-text-color-secondary-dark: rgba(255, 255, 255, 0.7);
+
+$neu-g-bg-color-disabled-light: #dee5e8;
+$neu-g-bg-color-disabled-dark: #727272;
+
+// btn
+$neu-box-shadow: 5px 5px 10px $neu-light-bg-dark-shadow,
+  -5px -5px 10px $neu-light-bg-light-shadow;
+$neu-box-shadow-hover: 2px 2px 4px $neu-light-bg-dark-shadow,
+  -2px -2px 4px $neu-light-bg-light-shadow;
+$neu-box-shadow-inset: inset -2px -2px 5px $neu-light-bg-light-shadow,
+  inset 2px 2px 5px $neu-light-bg-dark-shadow;
+$neu-box-shadow-inset-low: inset -1px -1px 3px $neu-light-bg-light-shadow,
+  inset 1px 1px 3px $neu-light-bg-dark-shadow;
+
+$neu-shadow-normal: 2px;
+$neu-shadow-hover: 1px;

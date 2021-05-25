@@ -8,6 +8,14 @@ export interface ProgressBarProps extends React.HTMLAttributes<HTMLDivElement> {
   height?: number;
 }
 
+/**
+ * Linear progress bar
+ *
+ * ## Usage
+ *
+ * import {ProgressBar} from "collin-ui"
+ *
+ */
 export const ProgressBar: React.FC<ProgressBarProps> = (props) => {
   const { theme, percent, className, style, height, ...restProps } = props;
   const styleWithHeight: React.CSSProperties = {

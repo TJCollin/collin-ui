@@ -1,123 +1,124 @@
 .input-outer-wrapper {
-	display: flex;
+  display: flex;
 
-	// common style for prepend & append
-	.prepend-wrapper,
-	.append-wrapper {
-		display: flex;
-		align-items: center;
-		padding: $input-padding-y $input-padding-x;
-		font-size: $text-wrapper-font-size;
-		color: $text-wrapper-color;
-		background: $text-wrapper-bg;
-		border: $input-border-width solid $input-border-color;
-		border-radius: $input-border-radius;
-		font-weight: $input-font-weight;
-		white-space: nowrap;
-		line-height: $input-line-height;
-	}
+  // common style for prepend & append
+  .prepend-wrapper,
+  .append-wrapper {
+    display: flex;
+    align-items: center;
 
-	// custom style of prepend & append
-	.prepend-wrapper {
-		border-top-right-radius: 0;
-		border-bottom-right-radius: 0;
-	}
-	.append-wrapper {
-		border-top-left-radius: 0;
-		border-bottom-left-radius: 0;
-	}
+    padding: $input-padding-y $input-padding-x;
+    font-size: $text-wrapper-font-size;
+    color: $text-wrapper-color;
+    background: transparent;
+    border: $input-border-width solid $input-border-color;
+    border-radius: $input-border-radius;
+    font-weight: $input-font-weight;
+    white-space: nowrap;
+    line-height: $input-line-height;
+  }
 
-	// common style for input & icon
-	.input-icon-wrapper {
-		position: relative;
-		input {
-			padding: $input-padding-y $input-padding-x;
-			font-family: $input-font-family;
-			font-size: $input-font-size;
-			font-weight: $input-font-weight;
-			line-height: $input-line-height;
-			background: $input-bg;
-			color: $input-color;
-			border: $input-border-width solid $input-border-color;
-			box-shadow: $input-box-shadow;
-			border-radius: $input-border-radius;
-			transition: $input-transition;
-			outline: none;
-			&:hover {
-				background: $input-focus-bg;
-				border-color: $input-focus-border-color;
-				color: $input-focus-color;
-				box-shadow: $input-focus-box-shadow;
-			}
-			&:disabled {
-				background: $input-disabled-bg;
-				border-color: $input-disabled-border-color;
-				pointer-events: none;
-			}
-			&::placeholder {
-				color: $input-placeholder-color;
-			}
-		}
-		.icon-wrapper {
-			position: absolute;
-			right: 0;
-			top: 0;
-			height: 100%;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			padding: 0 $input-icon-padding-x;
-			cursor: pointer;
-		}
-	}
+  // custom style of prepend & append
+  .prepend-wrapper {
+    border-right: none;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  .append-wrapper {
+    border-left: none;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
 
-	// custom style for input-icon-wrapper with prepend or append
-	&.input-with-prepend {
-		.input-icon-wrapper {
-			input {
-				border-top-left-radius: 0;
-				border-bottom-left-radius: 0;
-			}
-		}
-	}
-	&.input-with-append {
-		.input-icon-wrapper {
-			input {
-				border-top-right-radius: 0;
-				border-bottom-right-radius: 0;
-			}
-		}
-	}
+  // common style for input & icon
+  .input-icon-wrapper {
+    position: relative;
+    input {
+      padding: $input-padding-y $input-padding-x;
+      font-family: $input-font-family;
+      font-size: $input-font-size;
+      font-weight: $input-font-weight;
+      line-height: $input-line-height;
+      background: transparent;
+      color: $input-color;
+      border-radius: $input-border-radius;
+      transition: $input-transition;
+      @include neufactory-inset($neu-light-bg);
+      @include neufactory-inset-hover($neu-light-bg);
 
-	// custom style for input-icon-wrapper with icon
-	&.input-with-icon {
-		.input-icon-wrapper {
-			input {
-				padding-right: 2rem;
-			}
-		}
-	}
+      &:hover {
+        border-color: $input-focus-border-color;
+        color: $input-focus-color;
+      }
+      &:disabled {
+        background: $input-disabled-bg;
+        border-color: $input-disabled-border-color;
+        pointer-events: none;
+      }
+      &::placeholder {
+        color: $input-placeholder-color;
+      }
+    }
+    .icon-wrapper {
+      position: absolute;
+      right: 0;
+      top: 0;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 $input-icon-padding-x;
+      cursor: pointer;
+    }
+  }
 
-	// custom style for input-outer-wrapper when disabled
-	&.input-disabled {
-		pointer-events: none;
-	}
+  // custom style for input-icon-wrapper with prepend or append
+  &.input-with-prepend {
+    .input-icon-wrapper {
+      input {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+      }
+    }
+  }
+  &.input-with-append {
+    .input-icon-wrapper {
+      input {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+    }
+  }
 
-	// style for different sizes
-	&.input-lg {
-		.input-icon-wrapper {
-			input {
-				padding: $input-padding-y-lg $input-padding-x-lg;
-				font-size: $input-font-size-lg;
-			}
-		}
-	}
-	&.input-sm {
-		.input-icon-wrapper {
-			input {
-				padding: $input-padding-y-sm $input-padding-x-sm;
-				font-size: $input-font-size-sm;
-			}
-		}
-	}
+  // custom style for input-icon-wrapper with icon
+  &.input-with-icon {
+    .input-icon-wrapper {
+      input {
+        padding-right: 2rem;
+      }
+    }
+  }
+
+  // custom style for input-outer-wrapper when disabled
+  &.input-disabled {
+    pointer-events: none;
+  }
+
+  // style for different sizes
+  &.input-lg {
+    .input-icon-wrapper {
+      input {
+        padding: $input-padding-y-lg $input-padding-x-lg;
+        font-size: $input-font-size-lg;
+      }
+    }
+  }
+  &.input-sm {
+    .input-icon-wrapper {
+      input {
+        padding: $input-padding-y-sm $input-padding-x-sm;
+        font-size: $input-font-size-sm;
+      }
+    }
+  }
 }

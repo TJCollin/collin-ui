@@ -1,0 +1,22 @@
+.neu-card {
+  position: relative;
+  @include neufactory();
+  width: fit-content;
+  border-radius: $border-radius;
+  &.inset {
+    @include neufactory-inset();
+  }
+  &.flat {
+    box-shadow: none;
+    border: 1px solid $border-color;
+  }
+  &.hovered {
+    @include neufactory-hover();
+    &.inset {
+      @include neufactory-inset-hover();
+    }
+  }
+  .neu-card-content {
+    padding: 1rem;
+  }
+}

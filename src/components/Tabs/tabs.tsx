@@ -25,7 +25,7 @@ export const TabsContext = createContext<TabsContextType>({ activeIndex: "0" });
  * Divide data collections which are related yet belong to different types.<br>
  *
  * ```javascript
- * import {Tabs} from
+ * import {Tabs} from "collin-ui"
  * ```
  */
 export const Tabs: React.FC<TabsProps> = (props) => {

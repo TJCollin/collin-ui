@@ -1,60 +1,58 @@
 .upload {
-	.upload-input {
-		display: none;
-	}
-	.dragger {
-		background: $gray-100;
-		border: $border-width dashed $gray-300;
-		border-radius: $border-radius;
-		cursor: pointer;
-		padding: $upload-dragger-padding;
-		width: $upload-dragger-width;
-		height: $upload-dragger-height;
-		text-align: center;
-		&:hover {
-			border: $border-width dashed $primary;
-		}
-		&.drag-active {
-			border: $upload-dragger-active-border-width dashed $primary;
-			background: rgba($primary, 0.2);
-		}
-	}
-	.upload-list {
-		padding-left: 0;
-		padding-top: $upload-list-padding-top;
-		transition: all 0.5s cubic-bezier(0.55, 0, 0.1, 1);
+  .upload-input {
+    display: none;
+  }
+  .dragger {
+    @include neufactory-inset-hover($neu-light-bg);
+    @include neufactory-inset($neu-light-bg);
+    border-radius: $border-radius;
+    cursor: pointer;
+    padding: $upload-dragger-padding;
+    width: $upload-dragger-width;
+    height: $upload-dragger-height;
+    text-align: center;
 
-		.upload-list-item {
-			list-style: none;
-			font-size: $upload-list-item-font-size;
-			line-height: 1.8;
-			margin-top: $upload-list-item-margin-top;
-			border-radius: $border-radius;
-			min-width: $upload-list-item-min-width;
-			padding: $upload-list-item-padding-y $upload-list-item-padding-x;
-			.file-info {
-				display: flex;
-				flex-direction: row;
-				justify-content: space-between;
-				padding: $upload-list-item-padding-x $upload-list-item-padding-y;
-				.upload-list-item-name {
-					padding-left: $upload-list-item-name-padding-left;
-				}
-				.upload-list-item-remove {
-					cursor: pointer;
-					display: none;
-				}
-			}
+    &.drag-active {
+      border: $upload-dragger-active-border-width dashed $primary;
+      background: rgba($primary, 0.2);
+    }
+  }
+  .upload-list {
+    padding-left: 0;
+    padding-top: $upload-list-padding-top;
+    transition: all 0.5s cubic-bezier(0.55, 0, 0.1, 1);
 
-			&:hover {
-				background: $gray-200;
-				.upload-list-item-status {
-					display: none;
-				}
-				.upload-list-item-remove {
-					display: inline;
-				}
-			}
-		}
-	}
+    .upload-list-item {
+      list-style: none;
+      font-size: $upload-list-item-font-size;
+      line-height: 1.8;
+      margin-top: $upload-list-item-margin-top;
+      border-radius: $border-radius;
+      min-width: $upload-list-item-min-width;
+      padding: $upload-list-item-padding-y $upload-list-item-padding-x;
+      .file-info {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: $upload-list-item-padding-x $upload-list-item-padding-y;
+        .upload-list-item-name {
+          padding-left: $upload-list-item-name-padding-left;
+        }
+        .upload-list-item-remove {
+          cursor: pointer;
+          display: none;
+        }
+      }
+
+      &:hover {
+        background: $gray-200;
+        .upload-list-item-status {
+          display: none;
+        }
+        .upload-list-item-remove {
+          display: inline;
+        }
+      }
+    }
+  }
 }

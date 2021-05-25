@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import ClassNames from "classnames";
-
+import Icon from "../Icon";
 export type AlertType = "success" | "default" | "danger" | "warning";
 
 export interface AlertProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -33,7 +33,7 @@ export interface AlertProps extends React.HTMLAttributes<HTMLDivElement> {
  * #Usage
  *
  * ```javascript
- * import Alert from
+ * import Alert from "collin-ui"
  * ```
  */
 export const Alert: React.FC<AlertProps> = (props) => {
@@ -59,7 +59,7 @@ export const Alert: React.FC<AlertProps> = (props) => {
           setClose(true);
         }}
       >
-        x
+        <Icon icon="times"></Icon>
       </button>
     ) : null;
   };

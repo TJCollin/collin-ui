@@ -23,11 +23,12 @@ interface CMenuContext {
   defaultOpenSubMenus?: string[];
 }
 export const MenuContext = createContext<CMenuContext>({ activeIndex: "0" });
+
 /**
  * Menu that provides navigation for your website.
  *
  * ```javascript
- * import {Menu} from
+ * import {Menu} from "collin-ui"
  * ```
  */
 export const Menu: React.FC<MenuProps> = (props) => {

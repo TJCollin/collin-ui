@@ -25,7 +25,7 @@ export interface InputProps
  * Use `prepend` or `append` to distribute elements that prepend or append to Input.
  *
  * ```javascript
- * import {Input} from
+ * import {Input} from "collin-ui"
  * ```
  */
 export const Input: React.FC<InputProps> = (props) => {

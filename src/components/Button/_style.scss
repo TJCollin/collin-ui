@@ -1,69 +1,96 @@
 .btn {
-	position: relative;
-	display: inline-block;
-	width: fit-content;
-	font-weight: $btn-font-weight;
-	line-height: $btn-line-height;
-	color: $body-color;
-	white-space: nowrap;
-	text-align: center;
-	vertical-align: middle;
-	background-image: none;
-	border: $btn-border-width solid transparent;
-	@include button-size($btn-padding-x, $btn-padding-y, $btn-font-size, $btn-border-radius);
-	box-shadow: $btn-box-shadow;
-	cursor: pointer;
-	transition: $btn-transition;
-	&.disabled,
-	&[disabled] {
-		cursor: not-allowed;
-		opacity: $btn-disabled-opacity;
-		box-shadow: none;
-		> * {
-			pointer-events: none;
-		}
-	}
+  position: relative;
+  display: inline-block;
+  width: fit-content;
+  font-weight: $btn-font-weight;
+  line-height: $btn-line-height;
+  color: $body-color;
+  white-space: nowrap;
+  text-align: center;
+  vertical-align: middle;
+  background-image: none;
+  cursor: pointer;
+  @include button-size(
+    $btn-padding-x,
+    $btn-padding-y,
+    $btn-font-size,
+    $btn-border-radius
+  );
+  @include neufactory-hover($neu-light-bg);
+  @include neufactory($neu-light-bg);
+  @include neufactory-active($neu-light-bg);
+  transition: $btn-transition;
+  -webkit-tap-highlight-color: transparent !important;
+  border: none;
+  &.disabled,
+  &[disabled] {
+    cursor: not-allowed;
+    opacity: $btn-disabled-opacity;
+    color: $neu-g-text-color-disabled-light;
+    pointer-events: none;
+    > * {
+      pointer-events: none;
+    }
+  }
 }
 
 .btn-lg {
-	@include button-size($btn-padding-x-lg, $btn-padding-y-lg, $btn-font-size-lg, $btn-border-radius-lg);
+  @include button-size(
+    $btn-padding-x-lg,
+    $btn-padding-y-lg,
+    $btn-font-size-lg,
+    $btn-border-radius-lg
+  );
 }
 
 .btn-sm {
-	@include button-size($btn-padding-x-sm, $btn-padding-y-sm, $btn-font-size-sm, $btn-border-radius-sm);
+  @include button-size(
+    $btn-padding-x-sm,
+    $btn-padding-y-sm,
+    $btn-font-size-sm,
+    $btn-border-radius-sm
+  );
 }
 
 .btn-primary {
-	@include button-style($primary, $white, $primary);
+  color: $neu-primary;
+}
+.btn-primary.colored {
+  @include neufactory-hover($neu-primary);
+  @include neufactory($neu-primary);
+  @include neufactory-active($neu-primary);
+  @include colored($neu-primary);
 }
 
 .btn-danger {
-	@include button-style($danger, $white, $danger);
+  color: $neu-error;
 }
-
-.btn-default {
-	@include button-style($white, $body-color, $gray-400, $white, $primary, $primary);
+.btn-danger.colored {
+  @include neufactory-hover($neu-error);
+  @include neufactory($neu-error);
+  @include neufactory-active($neu-error);
+  @include colored($neu-error);
 }
 
 .btn-link {
-	font-weight: $font-weight-normal;
-	color: $btn-link-color;
-	text-decoration: underline;
-	box-shadow: none;
-	background: none;
-	&:hover {
-		color: $btn-link-hover-color;
-		text-decoration: $link-hover-decoration;
-		background: none;
-	}
-	&:focus,
-	&.focus {
-		color: $btn-link-hover-color;
-		text-decoration: $link-hover-decoration;
-	}
-	&:disabled,
-	&.disabled {
-		color: $btn-link-disabled-color;
-		pointer-events: none;
-	}
+  font-weight: $font-weight-normal;
+  color: $btn-link-color;
+  text-decoration: underline;
+  box-shadow: none;
+  background: none;
+  &:hover {
+    color: $btn-link-hover-color;
+    text-decoration: $link-hover-decoration;
+    background: none;
+  }
+  &:focus,
+  &.focus {
+    color: $btn-link-hover-color;
+    text-decoration: $link-hover-decoration;
+  }
+  &:disabled,
+  &.disabled {
+    color: $btn-link-disabled-color;
+    pointer-events: none;
+  }
 }

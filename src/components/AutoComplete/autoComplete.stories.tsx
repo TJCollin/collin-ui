@@ -30,30 +30,6 @@ export default {
       </div>
     ),
   ],
-  argTypes: {
-    renderOptions: {
-      description: "(data: DataSourceType) => ReactElement",
-      table: {
-        type: {
-          summary: "return the render template",
-        },
-      },
-      control: {
-        type: null,
-      },
-    },
-    append: {
-      description: "string | ReactElement",
-      table: {
-        type: {
-          summary: "append icon",
-        },
-      },
-      control: {
-        type: null,
-      },
-    },
-  },
 } as Meta;
 
 export const Default: Story<AutoCompleteProps> = () => {

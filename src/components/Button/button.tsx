@@ -10,6 +10,7 @@ interface BaseButtonProps {
   size?: ButtonSize;
   disabled?: boolean;
   btnType?: ButtonType;
+  colored?: boolean;
   children?: React.ReactNode;
   href?: string;
 }
@@ -41,7 +42,9 @@ export const Button: React.FC<ButtonProps> = (props) => {
     btnType = "default",
     disabled,
     children,
+    colored,
     href = "",
+
     ...restProps
   } = props;
 
@@ -52,6 +55,7 @@ export const Button: React.FC<ButtonProps> = (props) => {
       [`btn-${size}`]: size,
       // link类型的按钮没有disabled属性，其他都有
       disabled: btnType === "link" && disabled,
+      colored: colored,
     },
     className
   );
