@@ -8,9 +8,11 @@
 -->
 
 # CollinUI
+
 CollinUI, a React based component library for developers, designers and product managers.
 
 ## Install
+
 ```javascript
 npm install collin-ui --save
 
@@ -20,15 +22,18 @@ yarn add collin-ui
 ```
 
 ## Quick Start
-``` javascript
+
+```javascript
 // import css globally
-import 'vikingship/dist/index.css'
+import "vikingship/dist/index.css";
 
 import {
   Input,
-  Button
+  Button,
   // ...
-} from 'collin-ui'
-
+} from "collin-ui";
 ```
 
+## Docs
+
+[Stroybook Document](https://tjcollin.github.io/collin-ui/docs/)

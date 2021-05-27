@@ -26,7 +26,7 @@
   &[disabled] {
     cursor: not-allowed;
     opacity: $btn-disabled-opacity;
-    color: $neu-g-text-color-disabled-light;
+    color: $btn-disabled-color;
     pointer-events: none;
     > * {
       pointer-events: none;
@@ -53,23 +53,23 @@
 }
 
 .btn-primary {
-  color: $neu-primary;
+  color: $primary;
 }
 .btn-primary.colored {
-  @include neufactory-hover($neu-primary);
-  @include neufactory($neu-primary);
-  @include neufactory-active($neu-primary);
-  @include colored($neu-primary);
+  @include neufactory-hover($primary);
+  @include neufactory($primary);
+  @include neufactory-active($primary);
+  @include colored($primary);
 }
 
 .btn-danger {
-  color: $neu-error;
+  color: $danger;
 }
 .btn-danger.colored {
-  @include neufactory-hover($neu-error);
-  @include neufactory($neu-error);
-  @include neufactory-active($neu-error);
-  @include colored($neu-error);
+  @include neufactory-hover($danger);
+  @include neufactory($danger);
+  @include neufactory-active($danger);
+  @include colored($danger);
 }
 
 .btn-link {
@@ -90,7 +90,7 @@
   }
   &:disabled,
   &.disabled {
-    color: $btn-link-disabled-color;
+    color: $btn-disabled-color;
     pointer-events: none;
   }
 }

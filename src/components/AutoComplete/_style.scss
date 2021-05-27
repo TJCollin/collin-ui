@@ -27,10 +27,10 @@
     margin: 0;
     &.been-actived {
       background: $neu-light-bg;
-      color: $neu-primary;
+      color: $primary;
     }
     &:hover {
-      color: $neu-primary;
+      color: $primary;
       @include neufactory-inset($neu-light-bg);
     }
   }

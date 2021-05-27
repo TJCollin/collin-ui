@@ -1,4 +1,3 @@
-// 中性色
 $white: #fff !default;
 $gray-100: #f8f9fa !default;
 $gray-200: #e9ecef !default;
@@ -12,20 +11,20 @@ $gray-900: #212529 !default;
 $black: #000 !default;
 
 // 基础色板，自然色
-$blue: #0d6efd !default;
+$blue: #2979ff !default;
 $indigo: #6610f2 !default;
 $purple: #6f42c1 !default;
 $pink: #d63384 !default;
-$red: #dc3545 !default;
+$red: #ff5252 !default;
 $orange: #fd7e14 !default;
-$yellow: #fadb14 !default;
-$green: #52c41a !default;
+$yellow: #dfa700 !default;
+$green: #4caf50 !default;
 $teal: #20c997 !default;
 $cyan: #17a2b8 !default;
 
 // 系统色板
 $primary: $blue !default;
-$secondary: $gray-600 !default;
+$neu-secondary: $gray-600 !default;
 $success: $green !default;
 $info: $cyan !default;
 $warning: $yellow !default;
@@ -35,7 +34,7 @@ $dark: $gray-800 !default;
 
 $theme-list: (
   "primary": $primary,
-  "secondary": $secondary,
+  "secondary": $neu-secondary,
   "success": $success,
   "info": $info,
   "warning": $warning,
@@ -177,12 +176,6 @@ $border-radius: 0.25rem !default;
 $border-radius-lg: 0.3rem !default;
 $border-radius-sm: 0.2rem !default;
 
-// 不同类型的 box shadow
-$box-shadow-sm: 0 0.125rem 0.25rem rgba($black, 0.075) !default;
-$box-shadow: 0 0.5rem 1rem rgba($black, 0.15) !default;
-$box-shadow-lg: 0 1rem 3rem rgba($black, 0.175) !default;
-$box-shadow-inset: inset 0 1px 2px rgba($black, 0.075) !default;
-
 // 按钮
 // 按钮基本属性
 $btn-font-weight: 400;
@@ -205,13 +198,12 @@ $btn-font-size-lg: $font-size-lg !default;
 $btn-border-width: $border-width !default;
 
 // 按钮其他
-$btn-box-shadow: inset 0 1px 0 rgba($white, 0.15), 0 1px 1px rgba($black, 0.075) !default;
 $btn-disabled-opacity: 0.65 !default;
+$btn-disabled-color: $gray-600 !default;
 
 // 链接按钮
 $btn-link-color: $link-color !default;
 $btn-link-hover-color: $link-hover-color !default;
-$btn-link-disabled-color: $gray-600 !default;
 
 // 按钮 radius
 $btn-border-radius: $border-radius !default;
@@ -233,8 +225,6 @@ $alert-desc-font-size: 0.875rem;
 // menu
 $menu-border-width: $border-width !default;
 $menu-border-color: $border-color !default;
-$menu-box-shadow: inset 0 1px 0 rgba($white, 0.15),
-  0 1px 1px rgba($black, 0.075) !default;
 $menu-transition: color 0.15s ease-in-out, border-color 0.15s ease-in-out !default;
 
 // menu-item
@@ -243,11 +233,6 @@ $menu-item-padding-x: 1rem !default;
 $menu-item-active-color: $primary !default;
 $menu-item-active-border-width: 2px !default;
 $menu-item-disabled-color: $gray-600 !default;
-
-//sub-menu
-//submenu
-$submenu-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.12),
-  0 0 6px 0 rgba(0, 0, 0, 0.04);
 
 // tab
 $tab-border-width: $border-width !default;
@@ -286,7 +271,6 @@ $input-disabled-border-color: null !default;
 $input-color: $gray-700 !default;
 $input-border-color: $gray-400 !default;
 $input-border-width: $border-width !default;
-$input-box-shadow: $box-shadow-inset !default;
 
 $input-border-radius: $border-radius !default;
 $input-border-radius-lg: $border-radius-lg !default;
@@ -342,46 +326,10 @@ $upload-list-item-padding-y: 0.875rem;
 $upload-list-item-name-padding-left: 0.25rem;
 $upload-list-item-margin-top: 0.25rem;
 
+// neumorphism
 $neu-light-bg: #e4ebf5;
 $neu-light-bg-dark-shadow: scale-color($neu-light-bg, $lightness: -15%);
 $neu-light-bg-light-shadow: scale-color($neu-light-bg, $lightness: 85%);
-
-$neu-dark-bg: #444444;
-$neu-dark-bg-dark-shadow: #363636;
-$neu-dark-bg-light-shadow: #525252;
-
-$neu-white: #ffffff;
-$neu-black: #000000;
-
-$neu-primary: #2979ff;
-$neu-primary-dark: #2962ff;
-$neu-primary-light: #82b1ff;
-
-$neu-error: #ff5252;
-$neu-info: #2196f3;
-$neu-success: #4caf50;
-$neu-warning: #dfa700;
-
-$neu-g-text-color-light: rgba(0, 0, 0, 0.93);
-$neu-g-text-color-disabled-light: rgba(0, 0, 0, 0.45);
-$neu-g-text-color-secondary-light: rgba(0, 0, 0, 0.7);
-
-$neu-g-text-color-dark: rgba(255, 255, 255, 0.93);
-$neu-g-text-color-disabled-dark: rgba(255, 255, 255, 0.45);
-$neu-g-text-color-secondary-dark: rgba(255, 255, 255, 0.7);
-
-$neu-g-bg-color-disabled-light: #dee5e8;
-$neu-g-bg-color-disabled-dark: #727272;
-
-// btn
-$neu-box-shadow: 5px 5px 10px $neu-light-bg-dark-shadow,
-  -5px -5px 10px $neu-light-bg-light-shadow;
-$neu-box-shadow-hover: 2px 2px 4px $neu-light-bg-dark-shadow,
-  -2px -2px 4px $neu-light-bg-light-shadow;
-$neu-box-shadow-inset: inset -2px -2px 5px $neu-light-bg-light-shadow,
-  inset 2px 2px 5px $neu-light-bg-dark-shadow;
-$neu-box-shadow-inset-low: inset -1px -1px 3px $neu-light-bg-light-shadow,
-  inset 1px 1px 3px $neu-light-bg-dark-shadow;
 
 $neu-shadow-normal: 2px;
 $neu-shadow-hover: 1px;

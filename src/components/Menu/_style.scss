@@ -9,7 +9,6 @@
     0,
     transparent
   );
-  box-shadow: $menu-box-shadow;
   transition: $menu-transition;
 
   .submenu-item {
@@ -82,7 +81,6 @@
       top: calc(100% + 8px);
       z-index: 100;
       border: $menu-border-width solid $menu-border-color;
-      box-shadow: $submenu-box-shadow;
     }
   }
 }
