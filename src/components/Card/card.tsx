@@ -34,7 +34,7 @@ export const Card: FC<CardProps> = (props) => {
       flat: flat,
       hovered: hovered,
     },
-    classNames
+    className
   );
   return <div className={classes} {...restProps}></div>;
 };

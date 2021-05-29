@@ -6,6 +6,7 @@ import CardContent from "./cardContent";
 export default {
   title: "Card",
   component: Card,
+  subcomponents: { CardContent },
 } as Meta;
 
 export const Default: Story<CardProps> = () => {
