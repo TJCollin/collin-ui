@@ -14,9 +14,24 @@ export default {
 export const BasicUsage: Story<TabsProps> = () => {
   return (
     <Tabs>
-      <TabItem label="first"></TabItem>
-      <TabItem label="second"></TabItem>
-      <TabItem label="third"></TabItem>
+      <TabItem label="first">
+        First Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+        minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+        ex ea commodo consequat.
+      </TabItem>
+      <TabItem label="second">
+        Second Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+        minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+        ex ea commodo consequat.
+      </TabItem>
+      <TabItem label="third">
+        Third Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+        minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+        ex ea commodo consequat.
+      </TabItem>
     </Tabs>
   );
 };
@@ -24,9 +39,24 @@ export const BasicUsage: Story<TabsProps> = () => {
 export const CardTabs: Story<TabsProps> = () => {
   return (
     <Tabs type="card">
-      <TabItem label="first"></TabItem>
-      <TabItem label="second"></TabItem>
-      <TabItem label="third"></TabItem>
+      <TabItem label="first">
+        First Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+        minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+        ex ea commodo consequat.
+      </TabItem>
+      <TabItem label="second">
+        Second Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+        minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+        ex ea commodo consequat.
+      </TabItem>
+      <TabItem label="third">
+        Third Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+        minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+        ex ea commodo consequat.
+      </TabItem>
       <TabItem label="disabled" disaled></TabItem>
     </Tabs>
   );
@@ -40,9 +70,24 @@ export const CustomizedTabs: Story<TabsProps> = () => {
             <Icon icon="book"></Icon> first
           </span>
         }
-      ></TabItem>
-      <TabItem label="second"></TabItem>
-      <TabItem label="third"></TabItem>
+      >
+        First Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+        minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+        ex ea commodo consequat.
+      </TabItem>
+      <TabItem label="second">
+        Second Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+        minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+        ex ea commodo consequat.
+      </TabItem>
+      <TabItem label="third">
+        Third Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+        minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+        ex ea commodo consequat.
+      </TabItem>
       <TabItem label="disabled" disaled></TabItem>
     </Tabs>
   );

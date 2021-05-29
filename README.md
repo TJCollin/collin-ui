@@ -25,7 +25,7 @@ yarn add collin-ui
 
 ```javascript
 // import css globally
-import "vikingship/dist/index.css";
+import "collin-ui/dist/index.css";
 
 import {
   Input,

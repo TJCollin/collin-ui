@@ -1,13 +1,12 @@
 .tabs {
+  position: relative;
   .tabs-nav {
     display: flex;
     flex-direction: row;
     list-style: none;
-    border-bottom: $tab-border-width solid $tab-border-color;
     .tab-item {
       cursor: pointer;
       padding: $tab-item-padding-y $tab-item-padding-x;
-      @include neufactory-inset-hover($neu-light-bg);
       &:hover,
       .been-actived {
         color: $tab-item-active-color;
@@ -23,15 +22,11 @@
   .tabs-nav.nav-line {
     .tab-item {
       margin: 0;
-      border-bottom: $tab-item-active-border-width solid transparent;
       &:hover,
-      .been-actived {
+      &.been-actived {
         color: $tab-item-active-color;
       }
-      &.been-actived {
-        border-bottom: $tab-item-active-border-width solid
-          $tab-item-active-color;
-      }
+
       &.been-disabled {
         border-bottom: $tab-item-active-border-width solid transparent;
       }
@@ -54,9 +49,19 @@
       }
     }
   }
+  .underline {
+    position: absolute;
+    left: 0;
+    height: 2px;
+    background-color: $tab-item-active-color;
+    transition: left 0.2s, width 0.2s;
+    transform: translateY(-100%);
+  }
 
   .tabs-content {
     .tabs-content-item {
+      padding: $tab-item-padding-y 0;
+
       display: none;
       &.been-actived {
         display: block;

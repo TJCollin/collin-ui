@@ -1,9 +1,10 @@
-import React, { useState, createContext } from "react";
+//tabs.tsx
+import React, { useState, createContext, useRef, useEffect } from "react";
 import ClassNames from "classnames";
 import { TabItemProps } from "./tabItem";
 
 export interface SelectCallback {
-  (index: string): void;
+  (index: string, offsetLeft: number, offsetWidth: number): void;
 }
 
 type TabsType = "line" | "card";
@@ -35,22 +36,38 @@ export const Tabs: React.FC<TabsProps> = (props) => {
     "nav-line": type === "line",
     "nav-card": type === "card",
   });
+  const tabsRef = useRef<HTMLUListElement>(null);
+  const [{ lineWidth, lineLeft }, setStyle] = useState({
+    lineWidth: 0,
+    lineLeft: 0,
+  });
 
   const [activeIndex, setActive] = useState(defaultIndex);
 
-  const handleClick = (index: string) => {
+  useEffect(() => {
+    let a = tabsRef.current?.children[0] as HTMLLIElement;
+    a.click();
+  }, []);
+
+  const handleClick = (
+    index: string,
+    offsetLeft: number,
+    offsetWidth: number
+  ) => {
     setActive(index);
-    onSelect && onSelect(index);
+    setStyle({ lineWidth: offsetWidth, lineLeft: offsetLeft });
+    onSelect && onSelect(index, offsetLeft, offsetWidth);
   };
   const passedContext: TabsContextType = {
     activeIndex: activeIndex,
     onSelect: handleClick,
   };
 
-  const renderChildren = () => {
+  const renderNavTabs = () => {
     const indexArr: string[] = [];
     return React.Children.map(children, (child, index) => {
       let childEl = child as React.FunctionComponentElement<TabItemProps>;
+
       let customIndex = childEl.props.index;
       if (customIndex) {
         if (!indexArr.includes(customIndex)) {
@@ -85,11 +102,17 @@ export const Tabs: React.FC<TabsProps> = (props) => {
 
   return (
     <div className={tabsClasses} data-testid="test-tabs">
-      <ul className={tabsNavClasses}>
+      <ul className={tabsNavClasses} ref={tabsRef}>
         <TabsContext.Provider value={passedContext}>
-          {renderChildren()}
+          {renderNavTabs()}
         </TabsContext.Provider>
       </ul>
+      {type === "line" ? (
+        <div
+          className="underline"
+          style={{ width: lineWidth, left: lineLeft }}
+        ></div>
+      ) : null}
       <div className="tabs-content">{renderContent()}</div>
     </div>
   );
