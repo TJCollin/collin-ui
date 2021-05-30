@@ -1,4 +1,4 @@
-import React, { useContext, ReactNode, useRef } from "react";
+import React, { useContext, ReactNode, useRef, useEffect } from "react";
 import ClassNames from "classnames";
 import { TabsContext } from "./tabs";
 export interface TabItemProps {
@@ -12,7 +12,7 @@ export interface TabItemProps {
 export const TabItem: React.FC<TabItemProps> = (props) => {
   const { label, disaled, className, index } = props;
   const passedContext = useContext(TabsContext);
-  const onClick = passedContext.onSelect;
+  const { onSelect, activeIndex } = passedContext;
   const tabItemRef = useRef<HTMLLIElement>(null);
   const handleClick = () => {
     const offsetLeft =
@@ -23,8 +23,22 @@ export const TabItem: React.FC<TabItemProps> = (props) => {
       tabItemRef.current?.offsetWidth !== undefined
         ? tabItemRef.current?.offsetWidth
         : -1;
-    index && onClick && onClick(index, offsetLeft, offsetWidth);
+    index && onSelect && onSelect(index, offsetLeft, offsetWidth, false);
   };
+  useEffect(() => {
+    const offsetLeft =
+      tabItemRef.current?.offsetLeft !== undefined
+        ? tabItemRef.current?.offsetLeft
+        : -1;
+    const offsetWidth =
+      tabItemRef.current?.offsetWidth !== undefined
+        ? tabItemRef.current?.offsetWidth
+        : -1;
+    index &&
+      activeIndex === index &&
+      onSelect &&
+      onSelect(index, offsetLeft, offsetWidth, true);
+  }, []);
   const classes = ClassNames(
     "tab-item",
     {

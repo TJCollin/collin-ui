@@ -4,7 +4,7 @@ import ClassNames from "classnames";
 import { TabItemProps } from "./tabItem";
 
 export interface SelectCallback {
-  (index: string, offsetLeft: number, offsetWidth: number): void;
+  (index: string, offsetLeft: number, offsetWidth: number, init: boolean): void;
 }
 
 type TabsType = "line" | "card";
@@ -44,19 +44,15 @@ export const Tabs: React.FC<TabsProps> = (props) => {
 
   const [activeIndex, setActive] = useState(defaultIndex);
 
-  useEffect(() => {
-    let a = tabsRef.current?.children[0] as HTMLLIElement;
-    a.click();
-  }, []);
-
   const handleClick = (
     index: string,
     offsetLeft: number,
-    offsetWidth: number
+    offsetWidth: number,
+    init: boolean
   ) => {
     setActive(index);
     setStyle({ lineWidth: offsetWidth, lineLeft: offsetLeft });
-    onSelect && onSelect(index, offsetLeft, offsetWidth);
+    !init && onSelect && onSelect(index, offsetLeft, offsetWidth, init);
   };
   const passedContext: TabsContextType = {
     activeIndex: activeIndex,

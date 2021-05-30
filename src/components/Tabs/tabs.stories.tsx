@@ -13,7 +13,7 @@ export default {
 
 export const BasicUsage: Story<TabsProps> = () => {
   return (
-    <Tabs>
+    <Tabs defaultIndex="1">
       <TabItem label="first">
         First Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
         eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
@@ -38,7 +38,7 @@ export const BasicUsage: Story<TabsProps> = () => {
 
 export const CardTabs: Story<TabsProps> = () => {
   return (
-    <Tabs type="card">
+    <Tabs type="card" defaultIndex="1">
       <TabItem label="first">
         First Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
         eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
