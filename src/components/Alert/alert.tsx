@@ -9,6 +9,7 @@ export interface AlertProps extends React.HTMLAttributes<HTMLDivElement> {
    * Title of the alert
    */
   title: string;
+  showInStart?: boolean;
   classNames?: string;
   /**
    * Different types
@@ -55,10 +56,11 @@ export const Alert: React.FC<AlertProps> = (props) => {
     classNames,
     transitionClass = "neu-alert",
     timeout = 0,
+    showInStart = true,
 
     ...restProps
   } = props;
-  const [closed, setClose] = useState(false);
+  const [closed, setClose] = useState(!showInStart);
   const classes = ClassNames("alert", classNames, {
     [`alert-${type}`]: type,
   });

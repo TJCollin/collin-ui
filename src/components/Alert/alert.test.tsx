@@ -1,5 +1,5 @@
 import React from "react";
-import { render, fireEvent, getByRole } from "@testing-library/react";
+import { render, fireEvent, getByRole, waitFor } from "@testing-library/react";
 import Alert, { AlertProps } from "./alert";
 describe("Alert component", () => {
   const testAlertProps: AlertProps = {
@@ -21,7 +21,7 @@ describe("Alert component", () => {
     expect(closeButton.tagName).toBe("BUTTON");
     expect(closeButton).toBeInTheDocument();
   });
-  it("should close when close button clicked", () => {
+  it("should close when close button clicked", async () => {
     const { container, getByText, queryByText } = render(
       <Alert title={testAlertProps.title}></Alert>
     );
@@ -29,7 +29,9 @@ describe("Alert component", () => {
     const el = container.firstChild as HTMLElement;
     const closeButton = getByRole(el, "button");
     fireEvent.click(closeButton);
-    expect(queryByText(testAlertProps.title)).not.toBeInTheDocument();
+    await waitFor(() => {
+      expect(queryByText(testAlertProps.title)).not.toBeInTheDocument();
+    });
   });
   it("should render different Alert based on different props", () => {
     const { container, getByText, queryByText } = render(
