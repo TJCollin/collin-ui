@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ClassNames from "classnames";
 import { CSSTransition } from "react-transition-group";
 import Icon from "../Icon";
@@ -64,6 +64,10 @@ export const Alert: React.FC<AlertProps> = (props) => {
   const classes = ClassNames("alert", classNames, {
     [`alert-${type}`]: type,
   });
+
+  useEffect(() => {
+    setClose(!showInStart);
+  }, [showInStart]);
 
   const closeButton = () => {
     return closable ? (
