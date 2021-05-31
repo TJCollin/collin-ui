@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import ClassNames from "classnames";
+import { CSSTransition } from "react-transition-group";
 import Icon from "../Icon";
 export type AlertType = "success" | "default" | "danger" | "warning";
 
@@ -25,6 +26,14 @@ export interface AlertProps extends React.HTMLAttributes<HTMLDivElement> {
    * Descriptive text.
    */
   description?: string;
+  /**
+   * The duration of the transition.
+   */
+  timeout?: number;
+  /**
+   * Class for transtion.
+   */
+  transitionClass?: string;
 }
 
 /**
@@ -44,6 +53,9 @@ export const Alert: React.FC<AlertProps> = (props) => {
     closable,
     description,
     classNames,
+    transitionClass = "neu-alert",
+    timeout = 0,
+
     ...restProps
   } = props;
   const [closed, setClose] = useState(false);
@@ -64,14 +76,21 @@ export const Alert: React.FC<AlertProps> = (props) => {
     ) : null;
   };
 
-  return closed ? null : (
-    <div className={classes} {...restProps}>
-      <div className="content">
-        <span className={description ? "bold-title" : ""}>{title}</span>
-        {description ? <p className="alert-desc">{description}</p> : null}
+  return (
+    <CSSTransition
+      timeout={timeout}
+      in={!closed}
+      classNames={transitionClass}
+      unmountOnExit
+    >
+      <div className={classes} {...restProps}>
+        <div className="content">
+          <span className={description ? "bold-title" : ""}>{title}</span>
+          {description ? <p className="alert-desc">{description}</p> : null}
+        </div>
+        {closeButton()}
       </div>
-      {closeButton()}
-    </div>
+    </CSSTransition>
   );
 };
 
