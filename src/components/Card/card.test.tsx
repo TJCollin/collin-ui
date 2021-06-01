@@ -1,6 +1,5 @@
 import React from "react";
 import Card from "./index";
-import { CardProps } from "./card";
 import CardContent from "./cardContent";
 import { render } from "@testing-library/react";
 describe("Card Component", () => {

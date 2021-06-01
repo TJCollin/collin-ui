@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import ClassNames from "classnames";
-import { CSSTransition } from "react-transition-group";
 import Icon from "../Icon";
 export type AlertType = "success" | "default" | "danger" | "warning";
 
@@ -66,6 +65,7 @@ export const Alert: React.FC<AlertProps> = (props) => {
       <button
         onClick={() => {
           setClose(true);
+          onClose && onClose();
         }}
       >
         <Icon icon="times"></Icon>

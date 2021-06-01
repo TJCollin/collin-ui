@@ -1,5 +1,5 @@
 //tabs.tsx
-import React, { useState, createContext, useRef, useEffect } from "react";
+import React, { useState, createContext, useRef } from "react";
 import ClassNames from "classnames";
 import { TabItemProps } from "./tabItem";
 
