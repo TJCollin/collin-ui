@@ -20,7 +20,6 @@ export const Default = Template.bind({});
 Default.args = {
   title: "this is a alert",
   type: "default",
-  timeout: 100,
 };
 Default.storyName = "Basic Usage";
 

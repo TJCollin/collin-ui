@@ -10,7 +10,7 @@ export interface AlertProps extends React.HTMLAttributes<HTMLDivElement> {
    */
   title: string;
   showInStart?: boolean;
-  classNames?: string;
+  className?: string;
   /**
    * Different types
    */
@@ -53,27 +53,18 @@ export const Alert: React.FC<AlertProps> = (props) => {
     onClose,
     closable,
     description,
-    classNames,
-    transitionClass = "neu-alert",
-    timeout = 0,
-    showInStart = true,
-
+    className,
     ...restProps
   } = props;
-  const [closed, setClose] = useState(!showInStart);
-  const classes = ClassNames("alert", classNames, {
+  const [closed, setClose] = useState(false);
+  const classes = ClassNames("alert", className, {
     [`alert-${type}`]: type,
   });
-
-  useEffect(() => {
-    setClose(!showInStart);
-  }, [showInStart]);
 
   const closeButton = () => {
     return closable ? (
       <button
         onClick={() => {
-          onClose && onClose();
           setClose(true);
         }}
       >
@@ -82,21 +73,14 @@ export const Alert: React.FC<AlertProps> = (props) => {
     ) : null;
   };
 
-  return (
-    <CSSTransition
-      timeout={timeout}
-      in={!closed}
-      classNames={transitionClass}
-      unmountOnExit
-    >
-      <div className={classes} {...restProps}>
-        <div className="content">
-          <span className={description ? "bold-title" : ""}>{title}</span>
-          {description ? <p className="alert-desc">{description}</p> : null}
-        </div>
-        {closeButton()}
+  return closed ? null : (
+    <div className={classes} {...restProps}>
+      <div className="content">
+        <span className={description ? "bold-title" : ""}>{title}</span>
+        {description ? <p className="alert-desc">{description}</p> : null}
       </div>
-    </CSSTransition>
+      {closeButton()}
+    </div>
   );
 };
 
