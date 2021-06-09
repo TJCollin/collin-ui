@@ -1,11 +1,12 @@
 .progress-bar {
   width: 100%;
   box-sizing: border-box;
-  border-radius: $progress-border-radius;
   background-color: $white;
+  padding: 4px;
+  @include neufactory-inset();
   .progress-bar-inner {
-    border-radius: $progress-border-radius;
     transition: $progress-bar-transition;
+    border-radius: inherit;
     line-height: 1;
   }
 }
@@ -14,7 +15,6 @@
     background-color: scale-color($color: $val, $lightness: 80%);
     .progress-bar-inner {
       background-color: $val;
-      @include neufactory($val);
       @include colored($val);
     }
   }

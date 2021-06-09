@@ -17,14 +17,16 @@ export interface ProgressBarProps extends React.HTMLAttributes<HTMLDivElement> {
  *
  */
 export const ProgressBar: React.FC<ProgressBarProps> = (props) => {
-  const { theme, percent, className, style, height, ...restProps } = props;
+  const { theme, percent, className, style, height = 16, ...restProps } = props;
   const styleWithHeight: React.CSSProperties = {
+    borderRadius: height / 2,
     ...style,
     height: `${height}px`,
   };
   const innerStyle: React.CSSProperties = {
     width: `${percent}%`,
     height: "100%",
+    borderRadius: height / 2,
   };
   const classes = ClassNames(
     "progress-bar",
