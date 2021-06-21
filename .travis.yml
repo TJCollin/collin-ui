@@ -1,1 +1,30 @@
+language: node_js
+node_js:
+  - 14
+cache:
+  directories:
+    - node_modules
 
+env:
+  CI: false
+
+before_install:
+  - npm config set sass_binary_site https://npm.taobao.org/mirrors/node-sass/
+
+script: npm run build-storybook
+
+branches:
+  only:
+    - main
+
+deploy:
+  - provider: pages
+    skip_cleanup: true
+    github_token: $GITHUB_TOKEN # Set in the settings page of your repository, as a secure variable
+    keep_history: true
+    local_dir: storybook-static
+    on:
+      branch: gh-pages
+  - provider: npm
+    email: "1084823834@qq.com"
+    api_key: $NPM_TOKEN
