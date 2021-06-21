@@ -1,0 +1,11 @@
+.icon-button {
+  line-height: 1;
+  padding: $btn-padding-x;
+  .icon {
+    width: 1em;
+    height: 1em;
+  }
+  &.rounded {
+    border-radius: 50%;
+  }
+}

@@ -26,7 +26,7 @@ export interface IconProps extends FontAwesomeIconProps {
  * FontAwesome icons from library `@fortawesome/free-solid-svg-icons`
  *
  * ```javascript
- * import {Icon} from "collin-ui"
+ * import { Icon } from "collin-ui"
  * ```
  */
 export const Icon: React.FC<IconProps> = (props) => {

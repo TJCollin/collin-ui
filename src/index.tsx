@@ -12,3 +12,4 @@ export { default as TabItem } from "./components/Tabs/tabItem";
 export { default as Upload } from "./components/Upload";
 export { default as Card } from "./components/Card";
 export { default as CardContent } from "./components/Card/cardContent";
+export { default as IconButton } from "./components/IconButton";

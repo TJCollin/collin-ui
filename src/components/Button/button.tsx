@@ -31,7 +31,7 @@ export type ButtonProps = NativeButtonProps & AnchorButtonProps;
  * Commonly used buttons.
  *
  * ```javascript
- * import {Button} from
+ * import {Button} from "collin-ui"
  * ```
  *
  */

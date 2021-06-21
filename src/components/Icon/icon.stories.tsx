@@ -14,7 +14,7 @@ export const Default: Story<IconProps> = () => {
       <Button>
         <Icon icon="arrow-left"></Icon>
       </Button>
-      <Button>
+      <Button style={{ marginLeft: "20px" }}>
         <Icon icon="arrow-right"></Icon>
       </Button>
     </div>
@@ -28,7 +28,7 @@ export const IconTheme: Story<IconProps> = () => {
       <Button>
         <Icon icon="arrow-left" theme="danger"></Icon>
       </Button>
-      <Button>
+      <Button style={{ marginLeft: "20px" }}>
         <Icon icon="arrow-right" theme="success"></Icon>
       </Button>
     </div>
