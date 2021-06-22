@@ -23,6 +23,9 @@ deploy:
     github_token: $GITHUB_TOKEN # Set in the settings page of your repository, as a secure variable
     keep_history: true
     local_dir: storybook-static
+    target_branch: gh-pages
+    on:
+      branch: main
 
   - provider: npm
     email: "1084823834@qq.com"
