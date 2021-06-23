@@ -8,6 +8,8 @@ on:
   push:
     branches: [main]
 
+  release:
+
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
@@ -67,11 +69,12 @@ jobs:
           path: ./storybook-static
 
       - name: Build dist
+        id: build-dist
         run: yarn build
 
       - name: Publish to npm
-        needs: Build dist
-        on: release
+        needs: build-dist
+        if: ${{ github.event_name == 'release' }}
         uses: JS-DevTools/npm-publish@v1
         with:
           token: ${{ secrets.NPM_TOKEN }}
