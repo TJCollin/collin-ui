@@ -74,7 +74,6 @@ jobs:
 
       - name: Publish to npm
         if: ${{ github.event_name == 'release' }}
-        needs: build-dist
         uses: JS-DevTools/npm-publish@v1
         with:
           token: ${{ secrets.NPM_TOKEN }}
