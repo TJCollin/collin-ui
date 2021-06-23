@@ -38,6 +38,9 @@ jobs:
       # Runs a single command using the runners shell
       - name: Install dependencies
         run: yarn install
+      
+      - name: Test project
+        run: yarn test:nowatch
 
       # Runs a set of commands using the runners shell
       - name: Build storybook
