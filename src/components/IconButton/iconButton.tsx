@@ -1,5 +1,5 @@
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
-import { FC, memo } from "react";
+import React, { FC, memo } from "react";
 import Button from "../Button";
 import { ButtonProps } from "../Button/button";
 import Icon from "../Icon/icon";
