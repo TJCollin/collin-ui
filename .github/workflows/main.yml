@@ -20,6 +20,13 @@ jobs:
     env:
       CI: false
     steps:
+      - name: Automated Version Bump
+        if: ${{ github.event_name == 'release' && github.event.types == 'created'}}
+        uses: MontyD/package-json-updated-action
+        id: version-updated
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
         with:
@@ -64,14 +71,6 @@ jobs:
         with:
           name: storybook-dist
           path: ./storybook-static
-
-      - name: Automated Version Bump
-        if: ${{ github.event_name == 'release' && github.event.types == 'created'}}
-        uses: "phips28/gh-action-bump-version@master"
-        with:
-          tag-prefix: ""
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build dist
         if: ${{ github.event_name == 'release' && github.event.types == 'created'}}
