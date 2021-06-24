@@ -50,12 +50,14 @@ jobs:
           steps.cache-node-modules.outputs.cache-hit != 'true'
 
   test:
+    runs-on: ubuntu-latest
     needs: init
     steps:
       - name: Test project
         run: yarn test:nowatch
 
   build:
+    runs-on: ubuntu-latest
     needs: test
     env:
       CI: false
