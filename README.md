@@ -7,7 +7,7 @@
  * @FilePath: \collin-components\README.md
 -->
 
-![CI](https://github.com/TJCollin/collin-ui/actions/workflows/main.yml/badge.svg)
+[![CI](https://github.com/TJCollin/collin-ui/actions/workflows/main.yml/badge.svg)](https://github.com/TJCollin/collin-ui/actions/workflows/main.yml)
 
 # CollinUI
 
