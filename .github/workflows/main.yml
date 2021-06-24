@@ -20,12 +20,9 @@ jobs:
     env:
       CI: false
     steps:
-      - name: Automated Version Bump
+      - name: Update version in package.json
         if: ${{ github.event_name == 'release' && github.event.types == 'created'}}
-        uses: MontyD/package-json-updated-action
-        id: version-updated
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        uses: maks-stupak/gh-action-bump-version@v7.1.5
 
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
