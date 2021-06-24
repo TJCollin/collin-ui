@@ -38,4 +38,4 @@ import {
 
 ## Docs
 
-[Stroybook Document](https://tjcollin.github.io/collin-ui/docs/)
+[Stroybook Document](https://tjcollin.github.io/collin-ui/)
