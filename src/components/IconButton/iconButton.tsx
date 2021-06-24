@@ -19,8 +19,8 @@ export interface IconButtonProps extends ButtonProps {
  *
  */
 export const IconButton: FC<IconButtonProps> = memo(
-  ({ icon, rounded, ...restProps }) => {
-    const classes = classNames("icon-button", rounded && "rounded");
+  ({ icon, rounded, className, ...restProps }) => {
+    const classes = classNames("icon-button", rounded && "rounded", className);
 
     return (
       <Button className={classes} {...restProps}>

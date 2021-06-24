@@ -10,8 +10,9 @@ export default {
 export const Default: Story<IconButtonProps> = () => {
   return (
     <div>
-      <IconButton icon="arrow-left"></IconButton>
+      <IconButton icon="arrow-left" className="test"></IconButton>
       <IconButton
+        className="test"
         rounded
         icon="arrow-right"
         style={{ marginLeft: "20px" }}

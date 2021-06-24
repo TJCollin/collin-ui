@@ -15,16 +15,8 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
-  build:
-    # The type of runner that the job will run on
-    runs-on: ubuntu-latest
-    env:
-      CI: false
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
+  init:
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
         with:
@@ -56,23 +48,45 @@ jobs:
           steps.cache-yarn-cache.outputs.cache-hit != 'true' ||
           steps.cache-node-modules.outputs.cache-hit != 'true'
 
+  test:
+    needs: init
+    steps:
       - name: Test project
         run: yarn test:nowatch
+
+  build:
+    needs: test
+    runs-on: ubuntu-latest
+    env:
+      CI: false
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
 
       - name: Build storybook
         run: yarn build-storybook
 
-      - name: Upload production-ready build files
+      - name: Upload storybook build files
         uses: actions/upload-artifact@v2
         with:
-          name: production-files
+          name: storybook-dist
           path: ./storybook-static
 
+      - name: Automated Version Bump
+        if: ${{ github.event_name == 'release' }}
+        uses: "phips28/gh-action-bump-version@master"
+        with:
+          tag-prefix: ""
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Build dist
+        if: ${{ github.event_name == 'release' }}
         id: build-dist
         run: yarn build
 
-      - name: Publish to npm
+      - name: Publish dist to npm
         if: ${{ github.event_name == 'release' }}
         uses: JS-DevTools/npm-publish@v1
         with:
@@ -85,10 +99,10 @@ jobs:
     if: github.ref == 'refs/heads/main'
 
     steps:
-      - name: Download artifact
+      - name: Download storybook build files
         uses: actions/download-artifact@v2
         with:
-          name: production-files
+          name: storybook-dist
           path: ./storybook-static
 
       - name: Deploy to gh-pages
