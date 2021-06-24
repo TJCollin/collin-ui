@@ -49,9 +49,9 @@ jobs:
 
       - name: Install dependencies
         run: yarn
-        if: |
-          steps.cache-yarn-cache.outputs.cache-hit != 'true' ||
-          steps.cache-node-modules.outputs.cache-hit != 'true'
+        # if: |
+        #   steps.cache-yarn-cache.outputs.cache-hit != 'true' ||
+        #   steps.cache-node-modules.outputs.cache-hit != 'true'
 
       - name: Test project
         run: yarn test:nowatch
