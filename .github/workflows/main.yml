@@ -15,8 +15,10 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  init:
+  build:
     runs-on: ubuntu-latest
+    env:
+      CI: false
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
@@ -44,27 +46,15 @@ jobs:
           key: ${{ runner.os }}-${{ matrix.node-version }}-nodemodules-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-${{ matrix.node-version }}-nodemodules-
-      - run: yarn
+
+      - name: Install dependencies
+        run: yarn
         if: |
           steps.cache-yarn-cache.outputs.cache-hit != 'true' ||
           steps.cache-node-modules.outputs.cache-hit != 'true'
 
-  test:
-    runs-on: ubuntu-latest
-    needs: init
-    steps:
       - name: Test project
         run: yarn test:nowatch
-
-  build:
-    runs-on: ubuntu-latest
-    needs: test
-    env:
-      CI: false
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
-    steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
 
       - name: Build storybook
         run: yarn build-storybook
