@@ -7,6 +7,8 @@
  * @FilePath: \collin-components\README.md
 -->
 
+![CI](https://github.com/TJCollin/collin-ui/actions/workflows/main.yml/badge.svg)
+
 # CollinUI
 
 CollinUI, a React based component library for developers, designers and product managers.
